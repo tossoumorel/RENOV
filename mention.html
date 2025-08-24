@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RENOV'AB - Réparation & Vente de Smartphones et Ordinateurs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0077b6",
+              secondary: "#00b4d8",
+              accent: "#ff9e00",
+              dark: "#03045e",
+              light: "#caf0f8",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .hero-bg {
+        background: linear-gradient(
+            rgba(0, 119, 182, 0.8),
+            rgba(0, 119, 182, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1511707171618-59184011a9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .feature-icon {
+        transition: all 0.3s ease;
+      }
+      .feature-icon:hover {
+        transform: scale(1.1);
+        color: #0077b6;
+      }
+      .btn-primary {
+        background: linear-gradient(to right, #0077b6, #00b4d8);
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background: linear-gradient(to right, #00b4d8, #0077b6);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .btn-secondary {
+        background: linear-gradient(to right, #ff9e00, #ff6b00);
+        transition: all 0.3s ease;
+      }
+      .btn-secondary:hover {
+        background: linear-gradient(to right, #ff6b00, #ff9e00);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .testimonial-card {
+        transition: all 0.3s ease;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+      }
+      .contact-card {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .social-icon:hover {
+        transform: translateY(-5px);
+        color: #0077b6;
+      }
+      .footer-bg {
+        background: linear-gradient(to right, #03045e, #0077b6);
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ff9e00;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .animated-bg {
+        background: linear-gradient(-45deg, #0077b6, #00b4d8, #ff9e00, #0077b6);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <div
+            class="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl"
+          >
+            R
+          </div>
+          <h1 class="ml-3 text-2xl font-bold text-primary">RENOV'AB</h1>
+        </div>
+
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.htm#accueil" class="nav-link font-medium"
+            >Accueil</a
+          >
+          <a href="index.htm#services" class="nav-link font-medium"
+            >Services</a
+          >
+          <a href="index.htm#produits" class="nav-link font-medium"
+            >Produits</a
+          >
+          <a href="index.htm#a-propos" class="nav-link font-medium"
+            >À Propos</a
+          >
+          <a href="index.htm#temoignages" class="nav-link font-medium"
+            >Témoignages</a
+          >
+          <a href="index.htm#contact" class="nav-link font-medium"
+            >Contact</a
+          >
+        </nav>
+
+        <div class="flex items-center">
+          <button class="md:hidden text-primary text-2xl">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a
+            href="index.htm#contact"
+            class="hidden md:block ml-4 px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-secondary transition duration-300"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!--Section-->
+    <!-- Section Mention légale -->
+    <section class="hero-bg footer-bg py-10 px-6 text-center pt-24">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-white mb-3 mt-4">
+          Mentions Légales
+        </h1>
+      </div>
+    </section>
+    <section class="bg-white py-10 px-6">
+      <div class="max-w-4xl mx-auto text-gray-800">
+        <h3 class="text-xl font-semibold mb-3">1. Informations Générales</h3>
+        <p class="mb-4">
+          Conformément à l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour
+          la confiance dans l’économie numérique, les utilisateurs du site
+          <a href="https://renovab.fr" class="text-blue-600 hover:underline"
+            >https://renovab.fr</a
+          >
+          sont informés des éléments suivants :
+        </p>
+        <ul class="list-disc pl-6 mb-6 space-y-2">
+          <li><strong>Dénomination commerciale :</strong> RENOV'AB</li>
+          <li>
+            <strong>Forme juridique :</strong> Société par actions simplifiée
+            (Société à associé unique)
+          </li>
+          <li><strong>RCS :</strong> 925 363 251 R.C.S. Créteil</li>
+          <li>
+            <strong>Siège social :</strong> 4 Bis Voie Normande, 94290
+            Villeneuve-le-Roi
+          </li>
+          <li>
+            <strong>Responsable de la publication :</strong> Adam, Khallil
+            BENDADI –
+            <a
+              href="mailto:contact@renovab.fr"
+              class="text-blue-600 hover:underline"
+              >contact@renovab.fr</a
+            >
+          </li>
+          <li>
+            <strong>Conception et maintenance :</strong> ICT Consulting
+            <a
+              href="mailto:contact@renovab.fr"
+              class="text-blue-600 hover:underline"
+              >contact@renovab.fr</a
+            >
+          </li>
+          <li>
+            <strong>Hébergement :</strong> Hostinger International Ltd., 61
+            Lordou Vironos Street, 6023 Larnaca, Chypre
+          </li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mb-3">
+          2. Conditions d’Utilisation du Site
+        </h3>
+        <p class="mb-4">
+          L’accès et l’utilisation du site
+          <a href="https://renovab.fr" class="text-blue-600 hover:underline"
+            >https://renovab.fr</a
+          >
+          impliquent l’acceptation pleine et entière des conditions générales
+          d’utilisation. Celles-ci peuvent être modifiées à tout moment, il est
+          conseillé aux visiteurs de les consulter régulièrement.
+        </p>
+        <p class="mb-6">
+          Le site est accessible en permanence, sauf maintenance ou cas de force
+          majeure. RENOV'AB s’efforcera d’en informer les utilisateurs si
+          possible.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">3. Prestations et Contenus</h3>
+        <p class="mb-4">
+          Le site présente les services proposés par RENOV'AB, notamment la
+          réparation de smartphones et d'ordinateurs, ainsi que des conseils et
+          la vente d'accessoires informatiques et téléphones.
+        </p>
+        <p class="mb-6">
+          Malgré le soin apporté aux contenus, RENOV'AB ne peut garantir
+          l’exactitude ou l’exhaustivité des informations publiées. Elle ne
+          pourra être tenue responsable d’erreurs ou omissions, qu’elles soient
+          de son fait ou de tiers.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">
+          4. Droits de Propriété Intellectuelle
+        </h3>
+        <p class="mb-4">
+          L’ensemble des éléments du site (textes, images, logos, vidéos,
+          logiciels...) est protégé par les lois sur la propriété intellectuelle
+          et appartient à RENOV'AB ou à ses partenaires.
+        </p>
+        <p class="mb-6">
+          Toute reproduction, distribution ou utilisation, même partielle, sans
+          autorisation écrite est strictement interdite et pourra entraîner des
+          poursuites judiciaires.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">
+          5. Responsabilité et Limitations
+        </h3>
+        <p class="mb-4">
+          RENOV'AB décline toute responsabilité pour les dommages directs ou
+          indirects liés à l’accès ou à l’utilisation du site, notamment en cas
+          de virus, bug, incompatibilité technique ou défaillance d’équipement.
+        </p>
+        <p class="mb-6">
+          L’utilisateur s’engage à consulter le site avec un matériel sécurisé,
+          à jour et approprié.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">
+          6. Politique de Confidentialité et Données Personnelles
+        </h3>
+        <p class="mb-4">
+          Conformément à la loi n° 78-17 du 6 janvier 1978 et au RGPD, les
+          données personnelles collectées via le site sont traitées de manière
+          sécurisée et confidentielle, exclusivement dans le cadre des services
+          proposés.
+        </p>
+        <p class="mb-6">
+          L’utilisateur dispose d’un droit d’accès, de rectification,
+          d’opposition et de suppression. Toute demande peut être adressée à :
+          <a
+            href="mailto:contact@renovab.fr"
+            class="text-blue-600 hover:underline"
+            >contact@renovab.fr</a
+          >
+          accompagnée d’un justificatif d’identité.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">7. Gestion des Cookies</h3>
+        <p class="mb-4">
+          Le site peut utiliser des cookies pour améliorer l’expérience
+          utilisateur et obtenir des données statistiques. Chaque utilisateur
+          peut configurer son navigateur pour refuser l’installation de cookies.
+          Cela peut cependant limiter certaines fonctionnalités du site.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">
+          8. Droit Applicable et Juridiction
+        </h3>
+        <p class="mb-6">
+          Les présentes mentions sont régies par le droit français. En cas de
+          litige non résolu à l’amiable, les tribunaux compétents seront ceux du
+          ressort du siège social de RENOV'AB, à savoir les tribunaux de
+          Créteil.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">9. Références Légales</h3>
+        <ul class="list-disc pl-6 mb-6 space-y-2">
+          <li>
+            Loi n° 78-17 du 6 janvier 1978 relative à l’informatique, aux
+            fichiers et aux libertés
+          </li>
+          <li>
+            Règlement (UE) 2016/679 – Règlement Général sur la Protection des
+            Données (RGPD)
+          </li>
+          <li>
+            Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie
+            numérique
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-6">
+              <div
+                class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary font-bold text-xl"
+              >
+                R
+              </div>
+              <h2 class="ml-3 text-2xl font-bold">RENOV'AB</h2>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Votre partenaire de confiance pour la réparation et la vente de
+              smartphones et ordinateurs.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold mb-6">Nos Services</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Réparation Smartphones</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Réparation Ordinateurs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Vente d'Accessoires</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Conseils Techniques</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Vente de Téléphones</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!--
+<div>
+                    <h3 class="text-xl font-bold mb-6">Liens Utiles</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#accueil" class="text-gray-300 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#produits" class="text-gray-300 hover:text-white transition duration-300">Produits</a></li>
+                        <li><a href="#a-propos" class="text-gray-300 hover:text-white transition duration-300">À Propos</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                -->
+          <div>
+            <h3 class="text-xl font-bold mb-6">Liens rapide</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="cgv.html"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Conditions génrales de vente</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mention.html"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Mentions légales</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+            <p class="text-gray-300 mb-4">
+              Inscrivez-vous pour recevoir nos offres spéciales
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Votre email"
+                class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800"
+              />
+              <button
+                class="bg-accent text-white px-4 rounded-r-lg hover:bg-orange-600 transition duration-300"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2023 RENOV'AB. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a
+      href="tel:+33123456789"
+      class="fixed bottom-6 right-6 bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-40 hover:bg-orange-600 transition duration-300"
+    >
+      <i class="fas fa-phone text-2xl"></i>
+    </a>
+  </body>
+</html>
